@@ -1,22 +1,5 @@
-# Boilerplate repo for deploying static sites with Netlify, Metalsmith and Nunjucks
+# Official repo for rj-validate.com
 
-<a href="https://boilerplate-site.netlify.com" target="_blank">Live demo</a>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b2523d2-9538-4cbc-96e4-c891ed964d78/deploy-status)](https://app.netlify.com/sites/rj-validate/deploys)
 
-
-## Netlify Deploy settings
-
-Repository:  **Your GitHub link here**
-    
-Base directory:  **Not set**
-
-Build command:  **npm run build**
-
-Publish directory:  **build**
-
----
-
-Netlify:  https://www.netlify.com/
-
-Metalsmith:  https://metalsmith.io/
-
-Nunjucks:  https://mozilla.github.io/nunjucks/
+https://www.npmjs.com/package/rj-validate
