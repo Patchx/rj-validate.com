@@ -1,11 +1,34 @@
----
-body_title: "Boilerplate Title"
----
-
-{% extends "./templates/base.njk" %}
+{% extends "./templates/banner-layout.njk" %}
 
 {% block body %}
-  <h1>{{ body_title }}</h1>
-  <p>Some text here</p>
-  <a href="/second-page">Second Page</a>
+    <h1 class="display-1 mt-0 mt-md-5 pb-3">RJ Validate</h1>
+
+    <p class="lead">Javascript input validation you can use anywhere</p>
+
+    <div class="pt-4 pb-4 lead">
+        <div class="mx-auto">
+            <a 
+            	class="btn btn-lg btn-primary mr-3 mb-4" 
+            	href="https://github.com/Patchx/rj-validate"
+            >&nbsp;Learn More&nbsp;</a>
+
+            <a 
+            	class="btn btn-lg btn-secondary mr-3 mb-4" 
+            	href="https://www.npmjs.com/package/rj-validate"
+            >&nbsp;Download&nbsp;</a>
+        </div>
+    </div>
+
+    <a href="https://snyk.io/test/npm/rj-validate">
+    	<img 
+    		src="https://snyk.io/test/npm/rj-validate/badge.svg" 
+    		alt="Known Vulnerabilities" 
+    		data-canonical-src="https://snyk.io/test/npm/rj-validate" 
+    		style="max-width:100%;"
+    	>
+    </a>
+
+	<a href="https://travis-ci.org/Patchx/rj-validate">
+		<img src="https://travis-ci.org/Patchx/rj-validate.svg?branch=master">
+	</a>
 {% endblock %}

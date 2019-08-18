@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="/css/style.css" rel="stylesheet" integrity="">
+
+   {% block head %}
+        <!-- Defaults -->
+        <title>Boilerplate</title>
+   {% endblock %}
+</head>
+
+<body class="td-home">
+    <div class="container-fluid td-default td-outer">
+        <main role="main" class="td-main">
+
+            <section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-full js-td-cover td-overlay">
+                <div class="container td-overlay__inner">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center">
+                                {% block body %}
+                                    <h1>Body block content here</h1>
+                                {% endblock %}                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
