@@ -31,6 +31,7 @@ function getCurrentYear() {
 
 // Using the convention of 'g_' to indicate a global variable
 
+var g_latest_version = '1.3.1';
 var g_current_year = getCurrentYear();
 var g_last_modified = getCurrentDate();
 
@@ -50,6 +51,7 @@ Metalsmith(__dirname)
     	description: "",
     	generatorname: "Metalsmith",
     	generatorurl: "http://metalsmith.io/",
+    	g_latest_version: g_latest_version,
     	g_current_year: g_current_year,
 	    g_last_modified: g_last_modified,
   	})
