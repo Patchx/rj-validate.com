@@ -19,12 +19,19 @@ function getCurrentDate() {
 	return today.toDateString()
 }
 
+function getCurrentYear() {
+	var year = new Date();	
+
+	return year.getFullYear()
+}
+
 // --------------------
 // - Global variables -
 // --------------------
 
 // Using the convention of 'g_' to indicate a global variable
 
+var g_current_year = getCurrentYear();
 var g_last_modified = getCurrentDate();
 
 // --------------
@@ -43,7 +50,8 @@ Metalsmith(__dirname)
     	description: "",
     	generatorname: "Metalsmith",
     	generatorurl: "http://metalsmith.io/",
-    	g_last_modified: g_last_modified,
+    	g_current_year: g_current_year,
+	    g_last_modified: g_last_modified,
   	})
 	.source('./src')            // source directory
 	.destination('./build')     // destination directory
