@@ -19,7 +19,7 @@
             <div class="section-index">
                 <hr class="panel-line">
                 
-                <h2 class="h2"># How to install:</h2>
+                <h2 class="h2"><span class="text-muted">#</span> How to install:</h2>
 
                 <p>via npm:</p>
 
@@ -32,7 +32,8 @@
                 <p><code>&lt;script src="https://cdn.jsdelivr.net/npm/rj-validate@{{ g_latest_version }}/dist/rj.min.js"&gt;&lt;/script&gt;</code></p>
 
 
-                <h2># Validating an input:</h2>
+                <br>
+                <h2><span class="text-muted">#</span> Validating an input:</h2>
 
                 <p><code> require("rj-validate");<br>
 
@@ -79,7 +80,8 @@
                 }
                 </code></p>
 
-                <h2># Custom error messages:</h2>
+                <br>
+                <h2><span class="text-muted">#</span> Custom error messages:</h2>
 
                 <p>If you would like to replace the default error message with your own, you can pass that message into the rules argument:</p>
 
@@ -95,22 +97,8 @@
 
                 <p>For each rule that you'd like to have a custom error message, add a [rule]_msg option to the rules argument, as shown above.</p>
 
-                <h2># isValid for faster validation:</h2>
-
-                <p>In some scenarios, you may not be interested in the specific error message and you only want to know if the request passes all validations. In those situations, you can use isValid()</p>
-
-                <p><code>
-                rj().isValid('1987-10-01', {
-                    required: true,
-                    date: 'yyyy-mm-dd',
-                    before: '1980-01-01'
-                });
-
-                // output:
-                // false
-                </code></p>
-
-                <p>Available validation options:</p>
+                <br>
+                <h2><span class="text-muted">#</span> Available validation options:</h2>
 
                 <p><code>
                 rules = {
@@ -140,7 +128,24 @@
 
                 <p>Note that a [rule]:false will always be considered valid. This option exists solely to help dynamically specify rules at runtime.</p>
 
-                <h2># Custom validation rules:</h2>
+                <br>
+                <h2><span class="text-muted">#</span> isValid for faster validation:</h2>
+
+                <p>In some scenarios, you may not be interested in the specific error message and you only want to know if the request passes all validations. In those situations, you can use isValid()</p>
+
+                <p><code>
+                rj().isValid('1987-10-01', {
+                    required: true,
+                    date: 'yyyy-mm-dd',
+                    before: '1980-01-01'
+                });
+
+                // output:
+                // false
+                </code></p>
+
+                <br>
+                <h2><span class="text-muted">#</span> Custom validation rules:</h2>
 
                 <p>If you need to use a validation rule that isn't in the list above, you can create a custom rule. Here is an example of a custom rule that checks if the first letter in a line of text is capitalized:</p>
 
@@ -249,7 +254,8 @@
 
                 </code></p>
 
-                <h2># Validating multiple inputs:</h2>
+                <br>
+                <h2><span class="text-muted">#</span> Validating multiple inputs:</h2>
 
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
@@ -320,7 +326,8 @@
 
                 </code></p>
 
-                <h2># More Examples:</h2>
+                <br>
+                <h2><span class="text-muted">#</span> More Examples:</h2>
 
                 <p><code>
                 require("rj-validate");
@@ -371,7 +378,8 @@
                 // Object {message: "Hold on, that profile name isn't long enough", valid: false}
                 </code></p>
 
-                <h2># Changelog</h2>
+                <br>
+                <h2><span class="text-muted">#</span> Changelog</h2>
 
                 <p>v1.1.0</p>
 
@@ -386,8 +394,7 @@
                 <p>Fixed a bug with using the library as a CDN</p>
             </div>
 
-            <br />
-
+            <br>
             <div class="text-muted mt-5 pt-3 pb-2 border-top">
                 <span>Last modified {{ g_last_modified }}</span>
             </div>
