@@ -35,38 +35,40 @@
                 <br>
                 <h2><span class="text-muted">#</span> Validating an input:</h2>
 
-                <p><code> require("rj-validate");<br>
+                <p><code>
+require("rj-validate");
 
-                rj().validate('abc123', {<br>
-                    required: true<br>
-                });<br>
+rj().validate('abc123', {
+    required: true
+});
 
-                // output:<br>
-                // Object {message: "all tests pass", valid: true}<br>
+// output:
+// Object {message: "all tests pass", valid: true}
                 </code>
 
 
                 <p>The validate() and test() methods are interchangeable:</p>
 
                 <p><code>
-                require("rj-validate");
+require("rj-validate");
 
-                rj().test('abc123', {
-                    required: true
-                });
+rj().test('abc123', {
+    required: true
+});
 
-                // output:
-                // Object {message: "all tests pass", valid: true}
+// output:
+// Object {message: "all tests pass", valid: true}
                 </code></p>
 
                 <p>The validate() method takes three arguments:</p>
 
                 <p><code>
-                rj().validate(
-                    [ the input to validate (either a string or a number) ],
-                    [ the rules to test the input against (object) ],
-                    [ the name of the variable (a string) (optional) ]
-                )</code>
+rj().validate(
+    [ the input to validate (either a string or a number) ],
+    [ the rules to test the input against (object) ],
+    [ the name of the variable (a string) (optional) ]
+)
+                </code>
                 </p>
 
                 <p>The third argument is only used for displaying contextualized error messages.</p>
@@ -74,10 +76,10 @@
                 <p>The output of the validate() method is an object with the following structure:</p>
 
                 <p><code>
-                {
-                    valid: (true|false),
-                    message: (the specific error message)
-                }
+{
+    valid: (true|false),
+    message: (the specific error message)
+}
                 </code></p>
 
                 <br>
@@ -86,13 +88,13 @@
                 <p>If you would like to replace the default error message with your own, you can pass that message into the rules argument:</p>
 
                 <p><code>
-                rj().test('', {
-                    required: true,
-                    required_msg: "That's a failure"
-                });
+rj().test('', {
+    required: true,
+    required_msg: "That's a failure"
+});
 
-                // output:
-                // Object {message: "That's a failure", valid: false}
+// output:
+// Object {message: "That's a failure", valid: false}
                 </code></p>
 
                 <p>For each rule that you'd like to have a custom error message, add a [rule]_msg option to the rules argument, as shown above.</p>
@@ -101,29 +103,30 @@
                 <h2><span class="text-muted">#</span> Available validation options:</h2>
 
                 <p><code>
-                rules = {
-                    required:         (true|false),
-                    same:             {name: (string), value: (string|number|boolean)},
-                    different:        {name: (string), value: (string|number|boolean)},
-                    min:              (integer|false),
-                    max:              (integer|false),
-                    alpha:            (true|false),
-                    alphanumeric:     (true|false),
-                    numeric:          (true|false|'number'|'string'),
-                    number:           (true|false),
-                    string:           (true|false),
-                    date:             (true|false|'yyyy-mm-dd'|'mm/dd/yyyy'|'mm/dd/yy'),
-                    datetime:         (true|false|'yyyy-mm-dd hh:mm:ss'|'mm/dd/yyyy hh:mm:ss'|'mm/dd/yy hh:mm:ss'),
-                    email:            (true|false),
-                    po_box:           (true|false),
-                    not_po_box:       (true|false),
-                    in:               (array|object|false),
-                    not_in:           (array|object|false),
-                    before:           (string|Date|false),
-                    before_or:        (string|Date|false),
-                    after:            (string|Date|false),
-                    after_or:         (string|Date|false)
-                }
+rules = {
+    required:         (true|false),
+    same:             {name: (string), value: (string|number|boolean)},
+    different:        {name: (string), value: (string|number|boolean)},
+    min:              (integer|false),
+    max:              (integer|false),
+    alpha:            (true|false),
+    alphanumeric:     (true|false),
+    numeric:          (true|false|'number'|'string'),
+    number:           (true|false),
+    string:           (true|false),
+    date:             (true|false|'yyyy-mm-dd'|'mm/dd/yyyy'|'mm/dd/yy'),
+    datetime:         (true|false|'yyyy-mm-dd hh:mm:ss'
+                        |'mm/dd/yyyy hh:mm:ss'|'mm/dd/yy hh:mm:ss'),
+    email:            (true|false),
+    po_box:           (true|false),
+    not_po_box:       (true|false),
+    in:               (array|object|false),
+    not_in:           (array|object|false),
+    before:           (string|Date|false),
+    before_or:        (string|Date|false),
+    after:            (string|Date|false),
+    after_or:         (string|Date|false)
+}
                 </code></p>
 
                 <p>Note that a [rule]:false will always be considered valid. This option exists solely to help dynamically specify rules at runtime.</p>
@@ -134,14 +137,14 @@
                 <p>In some scenarios, you may not be interested in the specific error message and you only want to know if the request passes all validations. In those situations, you can use isValid()</p>
 
                 <p><code>
-                rj().isValid('1987-10-01', {
-                    required: true,
-                    date: 'yyyy-mm-dd',
-                    before: '1980-01-01'
-                });
+rj().isValid('1987-10-01', {
+    required: true,
+    date: 'yyyy-mm-dd',
+    before: '1980-01-01'
+});
 
-                // output:
-                // false
+// output:
+// false
                 </code></p>
 
                 <br>
@@ -150,108 +153,105 @@
                 <p>If you need to use a validation rule that isn't in the list above, you can create a custom rule. Here is an example of a custom rule that checks if the first letter in a line of text is capitalized:</p>
 
                 <p><code>
-                function startsWithCapital(input) {
-                    return input[0] === input[0].toUpperCase();
-                }
+function startsWithCapital(input) {
+    return input[0] === input[0].toUpperCase();
+}
 
-                require("rj-validate");
+require("rj-validate");
 
-                rj().test('the quick brown fox jumps over the lazy dog', {
-                    required: true,
-                    min: 4,
-                    custom: [{
-                        test: function(input) {
-                            return startsWithCapital(input);
-                        },
-                        error_msg: 'Please start your sentences with a capital letter.'
-                    }]
-                });
+rj().test('the quick brown fox jumps over the lazy dog', {
+    required: true,
+    min: 4,
+    custom: [{
+        test: function(input) {
+            return startsWithCapital(input);
+        },
+        error_msg: 'Please start your sentences with a capital letter.'
+    }]
+});
 
-                // output:
-                // Object {message: "Please start your sentences with a capital letter.", valid: false}
-
+// output:
+// Object {message: "Please start your sentences with a capital letter.", valid: false}
                 </code></p>
 
                 <p>You can pass as many custom rules into the validator as you would like:</p>
 
                 <p><code>
-                function startsWithCapital(input) {
-                    return input[0] === input[0].toUpperCase();
-                }
+function startsWithCapital(input) {
+    return input[0] === input[0].toUpperCase();
+}
 
-                function endsWithPeriod(input) {
-                    return input.slice(-1) === '.';
-                }
+function endsWithPeriod(input) {
+    return input.slice(-1) === '.';
+}
 
-                require("rj-validate");
+require("rj-validate");
 
-                rj().test('The quick brown fox jumps over the lazy dog', {
-                    required: true,
-                    min: 4,
-                    custom: [
-                        {
-                            test: function(input) {
-                                return startsWithCapital(input);
-                            },
-                            error_msg: 'Please start your sentences with a capital letter.'
-                        },
+rj().test('The quick brown fox jumps over the lazy dog', {
+    required: true,
+    min: 4,
+    custom: [
+        {
+            test: function(input) {
+                return startsWithCapital(input);
+            },
+            error_msg: 'Please start your sentences with a capital letter.'
+        },
 
-                        {
-                            test: function(input) {
-                                return endsWithPeriod(input);
-                            },
-                            error_msg: 'Please finish your sentences with a period.'
-                        },
-                    ]
-                });
+        {
+            test: function(input) {
+                return endsWithPeriod(input);
+            },
+            error_msg: 'Please finish your sentences with a period.'
+        },
+    ]
+});
 
-                // output:
-                // Object {message: "Please finish your sentences with a period.", valid: false}
-
+// output:
+// Object {message: "Please finish your sentences with a period.", valid: false}
                 </code></p>
 
                 <p>Custom rules give you a high degree of flexibility, while still working within the framework of a validation library. You can even use the custom validations array to reorganize which validations run before others:</p>
 
                 <p><code>
-                function startsWithCapital(input) {
-                    return input[0] === input[0].toUpperCase();
-                }
+function startsWithCapital(input) {
+    return input[0] === input[0].toUpperCase();
+}
 
-                function endsWithPeriod(input) {
-                    return input.slice(-1) === '.';
-                }
+function endsWithPeriod(input) {
+    return input.slice(-1) === '.';
+}
 
-                require("rj-validate");
+require("rj-validate");
 
-                rj().test('the', {
-                    required: true,
-                    custom: [
-                        {
-                            test: function(input) {
-                                return startsWithCapital(input);
-                            },
-                            error_msg: 'Please start your sentences with a capital letter.'
-                        },
+rj().test('the', {
+    required: true,
+    custom: [
+        {
+            test: function(input) {
+                return startsWithCapital(input);
+            },
+            error_msg: 'Please start your sentences with a capital letter.'
+        },
 
-                        {
-                            test: function(input) {
-                                return endsWithPeriod(input);
-                            },
-                            error_msg: 'Please finish your sentences with a period.'
-                        },
+        {
+            test: function(input) {
+                return endsWithPeriod(input);
+            },
+            error_msg: 'Please finish your sentences with a period.'
+        },
 
-                        {
-                            test: function(input) {
-                                return rj().isValid(input, {min: 4});
-                            },
-                            error_msg: 'Sentence is too short. Is this a sentence fragment?'
-                        },
-                    ]
-                });
+        {
+            test: function(input) {
+                return rj().isValid(input, {min: 4});
+            },
+            error_msg: 'Sentence is too short. Is this a sentence fragment?'
+        },
+    ]
+});
 
-                // output:
-                // Object {message: "Please start your sentences with a capital letter.", valid: false}
-
+// output:
+// Object {message: "Please start your sentences with a capital letter.", valid: false}
                 </code></p>
 
                 <br>
@@ -260,122 +260,121 @@
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
                 <p><code>
-                require("rj-validate");
+require("rj-validate");
 
-                rj().validateAll([
-                    {
-                        name: 'first name',
-                        value: 'Hubert!',
-                        rules: {
-                            required: true,
-                            min: 2,
-                            alpha: true
-                        },
-                    },
+rj().validateAll([
+    {
+        name: 'first name',
+        value: 'Hubert!',
+        rules: {
+            required: true,
+            min: 2,
+            alpha: true
+        },
+    },
 
-                    {
-                        name: 'middle name',
-                        value: 'J',
-                        rules: {
-                            min: 2,
-                            alpha: true
-                        }
-                    },
+    {
+        name: 'middle name',
+        value: 'J',
+        rules: {
+            min: 2,
+            alpha: true
+        }
+    },
 
-                    {
-                        name: 'last name',
-                        value: 'Farnsworth',
-                        rules: {
-                            required: true,
-                            min: 2,
-                            alpha: true
-                        }
-                    },
+    {
+        name: 'last name',
+        value: 'Farnsworth',
+        rules: {
+            required: true,
+            min: 2,
+            alpha: true
+        }
+    },
 
-                    {
-                        name: 'suffix',
-                        value: '',
-                        rules: {
-                            in: ['Jr', 'Sr', 'III', 'IV']
-                        }
-                    }
-                ]);
+    {
+        name: 'suffix',
+        value: '',
+        rules: {
+            in: ['Jr', 'Sr', 'III', 'IV']
+        }
+    }
+]);
 
-                // output:
-                Object {
-                    'first name': {
-                        valid: false,
-                        message: 'first name may only contain letters'
-                    },
+// output:
+Object {
+    'first name': {
+        valid: false,
+        message: 'first name may only contain letters'
+    },
 
-                    'middle name': {
-                        valid: false,
-                        message: 'middle name must be 2 or longer'
-                    },
+    'middle name': {
+        valid: false,
+        message: 'middle name must be 2 or longer'
+    },
 
-                    'last name': {
-                        valid: true,
-                        message: 'All tests pass'
-                    },
+    'last name': {
+        valid: true,
+        message: 'All tests pass'
+    },
 
-                    'suffix': {
-                        valid: true,
-                        message: 'All tests pass'
-                    }
-                }
-
+    'suffix': {
+        valid: true,
+        message: 'All tests pass'
+    }
+}
                 </code></p>
 
                 <br>
                 <h2><span class="text-muted">#</span> More Examples:</h2>
 
                 <p><code>
-                require("rj-validate");
+require("rj-validate");
 
-                var rj = rj();
+var rj = rj();
 
-                rj.test('abc123', {
-                    required: true
-                });
+rj.test('abc123', {
+    required: true
+});
 
-                // output:
-                // Object {message: "all tests pass", valid: true}
-
-
-                rj.test('', {
-                    required: true
-                });
-
-                // output:
-                // Object {message: "Required", valid: false}
+// output:
+// Object {message: "all tests pass", valid: true}
 
 
-                rj.test('', {
-                    required: true
-                }, 'first name');
+rj.test('', {
+    required: true
+});
 
-                // output:
-                // Object {message: "first name is required", valid: false}
-
-
-                rj.test('', {
-                    required: true,
-                    required_msg: "That's a failure"
-                });
-
-                // output:
-                // Object {message: "That's a failure", valid: false}
+// output:
+// Object {message: "Required", valid: false}
 
 
-                rj.validate('foobar', {
-                    required: true,
-                    required_msg: 'Profile name is definitely required',
-                    min: 7,
-                    min_msg: "Hold on, that profile name isn't long enough"
-                });
+rj.test('', {
+    required: true
+}, 'first name');
 
-                // output:
-                // Object {message: "Hold on, that profile name isn't long enough", valid: false}
+// output:
+// Object {message: "first name is required", valid: false}
+
+
+rj.test('', {
+    required: true,
+    required_msg: "That's a failure"
+});
+
+// output:
+// Object {message: "That's a failure", valid: false}
+
+
+rj.validate('foobar', {
+    required: true,
+    required_msg: 'Profile name is definitely required',
+    min: 7,
+    min_msg: "Hold on, that profile name isn't long enough"
+});
+
+// output:
+// Object {message: "Hold on, that profile name isn't long enough", valid: false}
                 </code></p>
 
                 <br>

@@ -553,7 +553,9 @@ mark,
 code {
 	font-size: 87.5%;
 	color: #c97300;
-	word-break: break-word
+	word-break: break-word;
+	display: block;
+	white-space: pre-wrap;
 }
 
 a>code {
