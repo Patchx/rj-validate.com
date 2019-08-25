@@ -19,7 +19,12 @@
             <div class="section-index">
                 <hr class="panel-line">
                 
-                <h2 class="h2"><span class="text-muted">#</span> How to install:</h2>
+                <a name="how-to-install">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#how-to-install">#</a></span>
+                        <span> How to install:</span>
+                    </h2>
+                </a>
 
                 <p>via npm:</p>
 
@@ -33,7 +38,12 @@
 
 
                 <br>
-                <h2><span class="text-muted">#</span> Validating an input:</h2>
+                <a name="validating-inputs">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#validating-inputs">#</a></span>
+                        <span> Validating an input:</span>
+                    </h2>
+                </a>
 
                 <p><code>
 require("rj-validate");
@@ -83,7 +93,12 @@ rj().validate(
                 </code></p>
 
                 <br>
-                <h2><span class="text-muted">#</span> Custom error messages:</h2>
+                <a name="custom-error-messages">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#custom-error-messages">#</a></span>
+                        <span> Custom error messages:</span>
+                    </h2>
+                </a>
 
                 <p>If you would like to replace the default error message with your own, you can pass that message into the rules argument:</p>
 
@@ -100,7 +115,12 @@ rj().test('', {
                 <p>For each rule that you'd like to have a custom error message, add a [rule]_msg option to the rules argument, as shown above.</p>
 
                 <br>
-                <h2><span class="text-muted">#</span> Available validation options:</h2>
+                <a name="validation-rules">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#validation-rules">#</a></span>
+                        <span> Available validation options:</span>
+                    </h2>
+                </a>
 
                 <p><code>
 rules = {
@@ -132,7 +152,12 @@ rules = {
                 <p>Note that a [rule]:false will always be considered valid. This option exists solely to help dynamically specify rules at runtime.</p>
 
                 <br>
-                <h2><span class="text-muted">#</span> isValid for faster validation:</h2>
+                <a name="isvalid-method">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#isvalid-method">#</a></span>
+                        <span> isValid for faster validation:</span>
+                    </h2>
+                </a>
 
                 <p>In some scenarios, you may not be interested in the specific error message and you only want to know if the request passes all validations. In those situations, you can use isValid()</p>
 
@@ -148,7 +173,12 @@ rj().isValid('1987-10-01', {
                 </code></p>
 
                 <br>
-                <h2><span class="text-muted">#</span> Custom validation rules:</h2>
+                <a name="custom-validation-rules">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#custom-validation-rules">#</a></span>
+                        <span> Custom validation rules:</span>
+                    </h2>
+                </a>
 
                 <p>If you need to use a validation rule that isn't in the list above, you can create a custom rule. Here is an example of a custom rule that checks if the first letter in a line of text is capitalized:</p>
 
@@ -255,7 +285,12 @@ rj().test('the', {
                 </code></p>
 
                 <br>
-                <h2><span class="text-muted">#</span> Validating multiple inputs:</h2>
+                <a name="validating-many-inputs">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#validating-many-inputs">#</a></span>
+                        <span> Validating multiple inputs:</span>
+                    </h2>
+                </a>
 
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
@@ -326,7 +361,12 @@ Object {
                 </code></p>
 
                 <br>
-                <h2><span class="text-muted">#</span> More Examples:</h2>
+                <a name="more-examples">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#more-examples">#</a></span>
+                        <span> More Examples:</span>
+                    </h2>
+                </a>
 
                 <p><code>
 require("rj-validate");
@@ -378,7 +418,12 @@ rj.validate('foobar', {
                 </code></p>
 
                 <br>
-                <h2><span class="text-muted">#</span> Changelog</h2>
+                <a name="changelog">
+                    <h2 class="h2">
+                        <span class="text-muted"><a href="/docs#changelog">#</a></span>
+                        <span> Changelog:</span>
+                    </h2>
+                </a>
 
                 <p>v1.1.0</p>
 
