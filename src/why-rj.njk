@@ -1,0 +1,43 @@
+{% extends "./templates/docs-layout.njk" %}
+{% set current_page = 'why-rj' %}
+
+{% block head %}
+    <title>Why RJ? | RJ   Validate</title>
+{% endblock %}
+
+{% block body %}
+    <main class="col-12" role="main">
+        <div class="td-main pl-5 pr-5">
+            <h1 class="mt-0 pb-1 text-center">Why use RJ Validate?</h1>
+
+            <div class="pt-4 pb-4">
+                <p class="text-center pb-2">There are a ton of validation libraries out there. However, many of these libraries:</p>
+
+                <ul 
+                    class="mx-auto pb-1" 
+                    style="max-width: 550px; padding-left: 95px"
+                >
+                    <li>Are tightly coupled to another framework</li>
+                    <li>Assume server/client environment (jQuery Validate, et al.)</li>
+                    <li>Assume how you want to display the error to the user</li>
+                    <li>Use complicated, verbose syntaxes</li>
+                    <li>Have unnecessary dependencies</li>
+                </ul>
+
+                <p class="text-center pb-2">..and are all these dependencies free of malicious code?</p>
+
+                <p 
+                    class="text-center mx-auto"
+                    style="max-width: 700px"
+                >rj-validate was built to be a simple, easy to use validation library that can be used across the stack, regardless of the other javascript frameworks you might be using.</p>
+            </div>
+
+            <div class="text-center">
+                <a 
+                    class="btn btn-lg btn-primary mb-4" 
+                    href="/docs"
+                >&nbsp;Get Started&nbsp;</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}
