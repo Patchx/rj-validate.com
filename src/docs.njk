@@ -217,87 +217,15 @@ rj().test('the quick brown fox jumps over the lazy dog', {
 // Object {message: "Please start your sentences with a capital letter.", valid: false}
                 </code></p>
 
-                <p>You can pass as many custom rules into the validator as you would like:</p>
-
-                <p><code>
-function startsWithCapital(input) {
-    return input[0] === input[0].toUpperCase();
-}
-
-function endsWithPeriod(input) {
-    return input.slice(-1) === '.';
-}
-
-require("rj-validate");
-
-rj().test('The quick brown fox jumps over the lazy dog', {
-    required: true,
-    min: 4,
-    custom: [
-        {
-            test: function(input) {
-                return startsWithCapital(input);
-            },
-            error_msg: 'Please start your sentences with a capital letter.'
-        },
-
-        {
-            test: function(input) {
-                return endsWithPeriod(input);
-            },
-            error_msg: 'Please finish your sentences with a period.'
-        },
-    ]
-});
-
-// output:
-// Object {message: "Please finish your sentences with a period.", valid: false}
-                </code></p>
-
                 <p>Custom rules give you a high degree of flexibility, while still working within the framework of a validation library. You can even use the custom validations array to reorganize which validations run before others:</p>
 
-                <p><code>
-function startsWithCapital(input) {
-    return input[0] === input[0].toUpperCase();
-}
+                <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="rander" data-slug-hash="vYBdReN" data-preview="true" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="rj-validate reordered validations">
+                  <span>See the Pen <a href="https://codepen.io/rander/pen/vYBdReN/">
+                  rj-validate reordered validations</a> by Robert Anderson (<a href="https://codepen.io/rander">@rander</a>)
+                  on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
 
-function endsWithPeriod(input) {
-    return input.slice(-1) === '.';
-}
-
-require("rj-validate");
-
-rj().test('the', {
-    required: true,
-    custom: [
-        {
-            test: function(input) {
-                return startsWithCapital(input);
-            },
-            error_msg: 'Please start your sentences with a capital letter.'
-        },
-
-        {
-            test: function(input) {
-                return endsWithPeriod(input);
-            },
-            error_msg: 'Please finish your sentences with a period.'
-        },
-
-        {
-            test: function(input) {
-                return rj().isValid(input, {min: 4});
-            },
-            error_msg: 'Sentence is too short. Is this a sentence fragment?'
-        },
-    ]
-});
-
-// output:
-// Object {message: "Please start your sentences with a capital letter.", valid: false}
-                </code></p>
-
-                <br>
+                <br><br>
                 <a name="validating-many-inputs">
                     <h2 class="h2">
                         <span class="text-muted"><a href="/docs#validating-many-inputs">#</a></span>
