@@ -98,7 +98,7 @@ module.exports = (function() {
 					message = 'Looks good!';
 				} else {
 					textColor = 'red';
-					message = "Please enter a date in the year 2019 in the format 'yyyy-mm-dd'";
+					message = "Please enter a date in the format 'yyyy-mm-dd'";
 				}
 
 				var msgDiv = document.getElementById('dob-result-msg');
