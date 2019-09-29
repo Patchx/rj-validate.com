@@ -20,11 +20,13 @@
                 <hr class="panel-line">
                 
                 <a name="how-to-install">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#how-to-install">#</a></span>
-                        <span> How to install:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#how-to-install">#</a></span>
+                    <span> How to install:</span>
+                </h2>
 
                 <p>via npm:</p>
 
@@ -35,15 +37,15 @@
                 <p>Copy the following script tag into the bottom of the page:</p>
 
                 <p><code>&lt;script src="https://cdn.jsdelivr.net/npm/rj-validate@{{ g_latest_version }}/dist/rj.min.js"&gt;&lt;/script&gt;</code></p>
-
-
-                <br>
+                
                 <a name="validating-inputs">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#validating-inputs">#</a></span>
-                        <span> Validating an input:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#validating-inputs">#</a></span>
+                    <span> Validating an input:</span>
+                </h2>
 
                 <p><code>
 require("rj-validate");
@@ -99,13 +101,14 @@ rj().validate(
 }
                 </code></p>
 
-                <br>
                 <a name="custom-error-messages">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#custom-error-messages">#</a></span>
-                        <span> Custom error messages:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#custom-error-messages">#</a></span>
+                    <span> Custom error messages:</span>
+                </h2>
 
                 <p>If you would like to replace the default error message with your own, you can pass that message into the rules argument:</p>
 
@@ -121,13 +124,14 @@ rj().test('', {
 
                 <p>For each rule that you'd like to have a custom error message, add a [rule]_msg option to the rules argument, as shown above.</p>
 
-                <br>
                 <a name="validation-rules">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#validation-rules">#</a></span>
-                        <span> Available validation options:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#validation-rules">#</a></span>
+                    <span> Available validation options:</span>
+                </h2>
 
                 <p><code>
 rules = {
@@ -158,13 +162,14 @@ rules = {
 
                 <p>Note that a [rule]:false will always be considered valid. This option exists solely to help dynamically specify rules at runtime.</p>
 
-                <br>
                 <a name="isvalid-method">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#isvalid-method">#</a></span>
-                        <span> isValid for faster validation:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#isvalid-method">#</a></span>
+                    <span> isValid for faster validation:</span>
+                </h2>
 
                 <p>In some scenarios, you may not be interested in the specific error message and you only want to know if the request passes all validations. In those situations, you can use isValid()</p>
 
@@ -185,13 +190,16 @@ rj().isValid('1987-10-01', {
                   on <a href="https://codepen.io">CodePen</a>.</span>
                 </p>
 
-                <br><br>
+                <br>
+
                 <a name="custom-validation-rules">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#custom-validation-rules">#</a></span>
-                        <span> Custom validation rules:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#custom-validation-rules">#</a></span>
+                    <span> Custom validation rules:</span>
+                </h2>
 
                 <p>If you need to use a validation rule that isn't in the list above, you can create a custom rule. Here is an example of a custom rule that checks if the first letter in a line of text is capitalized:</p>
 
@@ -225,13 +233,16 @@ rj().test('the quick brown fox jumps over the lazy dog', {
                   on <a href="https://codepen.io">CodePen</a>.</span>
                 </p>
 
-                <br><br>
+                <br>
+
                 <a name="validating-many-inputs">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#validating-many-inputs">#</a></span>
-                        <span> Validating multiple inputs:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#validating-many-inputs">#</a></span>
+                    <span> Validating multiple inputs:</span>
+                </h2>
 
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
@@ -302,12 +313,33 @@ Object {
                 </code></p>
 
                 <br>
-                <a name="more-examples">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#more-examples">#</a></span>
-                        <span> More Examples:</span>
-                    </h2>
+
+                <a name="backend-validation">
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#backend-validation">#</a></span>
+                    <span> Backend Validation with rj-validate:</span>
+                </h2>
+
+                <p>With rj-validate, you can use the same validation syntax on the backend that you do on the frontend. The following example shows form submission via Netlify Functions, frontend and backend validation with rj-validate, and data storage and retrieval via FaunaDB.</p>
+
+                <a 
+                    href="#" 
+                    target="_blank"
+                >Backend Demo Project</a>
+
+                <br><br>
+
+                <a name="more-examples">
+                    <p>&nbsp;</p>
+                </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#more-examples">#</a></span>
+                    <span> More Examples:</span>
+                </h2>
 
                 <p><code>
 require("rj-validate");
@@ -358,13 +390,14 @@ rj.validate('foobar', {
 // Object {message: "Hold on, that profile name isn't long enough", valid: false}
                 </code></p>
 
-                <br>
                 <a name="changelog">
-                    <h2 class="h2">
-                        <span class="text-muted"><a href="/docs#changelog">#</a></span>
-                        <span> Changelog:</span>
-                    </h2>
+                    <p>&nbsp;</p>
                 </a>
+
+                <h2 class="h2">
+                    <span class="text-muted"><a href="/docs#changelog">#</a></span>
+                    <span> Changelog:</span>
+                </h2>
 
                 <p>v1.3.2</p>
 
