@@ -6,6 +6,7 @@ console.log('js file build');
 // - Dependencies -
 // ----------------
 
+var path = require('path');
 var Metalsmith  = require('metalsmith');
 var in_place    = require('metalsmith-in-place');
 
@@ -44,7 +45,6 @@ var g_last_modified = getCurrentDate();
 // use them in layout-files
 
 Metalsmith(__dirname)         
-                              
 	.metadata({
     	sitename: "boilerplate site",
     	siteurl: "http://example.com",
