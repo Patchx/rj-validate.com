@@ -5,6 +5,10 @@
 /* Vue transition styles */
 /* --------------------- */
 
+[v-cloak] {
+	display: none;
+}
+
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease;
 }
