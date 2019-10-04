@@ -19,6 +19,7 @@
   },
   "homepage": "your_url_here",
   "dependencies": {
+    "horoscope": "^2.0.1",
     "js-datepicker": "^5.0.2",
     "jstransformer-nunjucks": "^0.5.0",
     "metalsmith": "^2.3.0",

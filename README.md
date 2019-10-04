@@ -11,10 +11,6 @@ Todo:
 
 - Fix documentation about var rj = require('rj-validate/dist/rj');
 
-- Install https://www.npmjs.com/package/horoscope
-
-- Show astrological sign when a valid date is selected
-
 - Link to the Myer's Briggs test: https://psychcentral.com/quizzes/personality/start.php
 
 - Make the Myer's Briggs results an optional input to the form
