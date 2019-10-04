@@ -1,19 +1,19 @@
 <template>
 	<div>
-		<p 
-		    class="mx-auto text-center"
-		    style="max-width:500px"
-		>Second Page</p>
-
 		<div class="text-center">
-			<p>Please enter a date in the year 2019</p>
+			<p>Please enter your birthday:</p>
 
 			<input 
 				id="date-of-birth"
-				placeholder="Your birthday here"
+				v-on:change="validateInput"
 			/>
 
-			<p id="dob-result-msg"></p>
+			<p 
+				v-if="dob_error_msg !== ''"
+				v-cloak
+				v-text="dob_error_msg"
+				style="color:red"
+			></p>
 		</div>
 
 		<br>
@@ -70,6 +70,7 @@ module.exports = (function() {
 			return {
 				data_is_valid: true,
 				date_of_birth: new Date(),
+				dob_error_msg: '',
 			};
 		},
 
@@ -85,25 +86,16 @@ module.exports = (function() {
 			validateInput: function() {
 				var input = document.getElementById('date-of-birth');
 
-				var isValid = rj().isValid(
-					input.value, 
-					{
-						required: true,
-						date: 'yyyy-mm-dd',
-					}
-				);
+				var isValid = rj().isValid(input.value, {
+					required: true,
+					date: 'yyyy-mm-dd',
+				});
 
 				if (isValid) {
-					textColor = 'green';
-					message = 'Looks good!';
+					this.dob_error_msg = "";
 				} else {
-					textColor = 'red';
-					message = "Please enter a date in the format 'yyyy-mm-dd'";
+					this.dob_error_msg = "Invalid date";
 				}
-
-				var msgDiv = document.getElementById('dob-result-msg');
-				msgDiv.style.color = textColor;
-				msgDiv.innerHTML = message;
 
 				return isValid;
 			},

@@ -5,3 +5,28 @@
 http://rj-validate.com
 
 https://www.npmjs.com/package/rj-validate
+
+
+Todo:
+
+- Fix documentation about var rj = require('rj-validate/dist/rj');
+
+- Install https://www.npmjs.com/package/horoscope
+
+- Show astrological sign when a valid date is selected
+
+- Link to the Myer's Briggs test: https://psychcentral.com/quizzes/personality/start.php
+
+- Make the Myer's Briggs results an optional input to the form
+
+- Use Netlify Functions
+
+- Use FaunaDB
+
+- Save the Fauna ID to Local Storage
+
+- If the ID exists in local storage, show the form submission and allow editing it
+
+- Make editing work
+
+- Show a link to load a chartJS of everyone's results
