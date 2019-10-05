@@ -48,7 +48,7 @@
                 </h2>
 
                 <p><code>
-require("rj-validate");
+require('rj-validate/dist/rj');
 
 rj().validate('abc123', {
     required: true
@@ -69,7 +69,7 @@ rj().validate('abc123', {
                 <p>The validate() and test() methods are interchangeable:</p>
 
                 <p><code>
-require("rj-validate");
+require('rj-validate/dist/rj');
 
 rj().test('abc123', {
     required: true
@@ -208,7 +208,7 @@ function startsWithCapital(input) {
     return input[0] === input[0].toUpperCase();
 }
 
-require("rj-validate");
+require('rj-validate/dist/rj');
 
 rj().test('the quick brown fox jumps over the lazy dog', {
     required: true,
@@ -247,7 +247,7 @@ rj().test('the quick brown fox jumps over the lazy dog', {
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
                 <p><code>
-require("rj-validate");
+require('rj-validate/dist/rj');
 
 rj().validateAll([
     {
@@ -339,7 +339,7 @@ Object {
                 </h2>
 
                 <p><code>
-require("rj-validate");
+require('rj-validate/dist/rj');
 
 var rj = rj();
 

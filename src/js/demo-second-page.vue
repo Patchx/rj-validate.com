@@ -19,8 +19,7 @@
 				v-if="sign !== ''"
 				v-cloak
 				v-text="signDisplayText"
-				style="margin-top:10px"
-
+				style="margin-top:10px; color:green"
 			></p>
 		</div>
 
@@ -30,7 +29,7 @@
 		    <button 
 		    	v-on:click="submitForm"
 		        class="btn btn-lg btn-primary mb-4" 
-		    >&nbsp;Submit&nbsp;</button>
+		    >&nbsp;Next&nbsp;</button>
 		</div>
 	</div>
 </template>
