@@ -90,24 +90,28 @@ module.exports = (function() {
 			},
 		},
 
+		mounted: function() {
+			initializeDatepicker(this);
+		},
+
 		methods: {
 			submitForm: function() {
 				var is_valid = this.validateInput();
 
 				if (is_valid) {
-					alert('submitted');
+					this.$emit('next-clicked');
 				}
 			},
 
 			validateInput: function() {
 				var input = document.getElementById('date-of-birth');
 
-				var isValid = rj().isValid(input.value, {
+				var is_valid = rj().isValid(input.value, {
 					required: true,
 					date: 'yyyy-mm-dd',
 				});
 
-				if (isValid) {
+				if (is_valid) {
 					this.dob_error_msg = '';
 					var date_array = input.value.split('-');
 
@@ -120,12 +124,8 @@ module.exports = (function() {
 					this.sign = '';
 				}
 
-				return isValid;
+				return is_valid;
 			},
-		},
-
-		mounted: function() {
-			initializeDatepicker(this);
 		},
 	};
 })();
