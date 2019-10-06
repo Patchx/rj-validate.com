@@ -3,55 +3,75 @@
 		<div class="text-center">
 			<p>How extroverted are you?</p>
 
-			<span 
-				class="d-none d-sm-inline-block"
-				style="margin-right:15px"
-			>Extroverted</span>
+			<div class="extrovert-radio-div">				
+				<div>
+					<input 
+						type="radio" 
+						id="radio-5"
+						v-model="extroversion_score"
+						value="5" 
+					/>
+				</div>
 
-			<div class="form-check form-check-inline">
-				<input 
-					class="form-check-input" 
-					type="radio" 
-					value="5"
-				/>
-			</div>
-			
-			<div class="form-check form-check-inline">
-				<input 
-					class="form-check-input" 
-					type="radio" 
-					value="4"
-				/>
-			</div>
-			
-			<div class="form-check form-check-inline">
-				<input 
-					class="form-check-input" 
-					type="radio" 
-					value="3" 
-				/>
+				<label for="radio-5">Very</label>
 			</div>
 
-			<div class="form-check form-check-inline">
-				<input 
-					class="form-check-input" 
-					type="radio" 
-					value="2" 
-				/>
+			<div class="extrovert-radio-div">				
+				<div>
+					<input 
+						type="radio"
+						v-model="extroversion_score"
+						value="4" 
+					/>
+				</div>
+
+				<label>&nbsp;</label>
 			</div>
 
-			<div class="form-check form-check-inline">
-				<input 
-					class="form-check-input" 
-					type="radio" 
-					value="1" 
-				/>
+			<div class="extrovert-radio-div">				
+				<div>
+					<input 
+						type="radio"
+						v-model="extroversion_score"
+						value="3" 
+					/>
+				</div>
+
+				<label>&nbsp;</label>
 			</div>
 
-			<span
-				class="d-none d-sm-inline-block"
-			>Introverted</span>
+			<div class="extrovert-radio-div">				
+				<div>
+					<input 
+						type="radio"
+						v-model="extroversion_score"
+						value="2" 
+					/>
+				</div>
+
+				<label>&nbsp;</label>
+			</div>
+
+			<div class="extrovert-radio-div">				
+				<div>
+					<input 
+						type="radio" 
+						id="radio-1"
+						v-model="extroversion_score"
+						value="1" 
+					/>
+				</div>
+
+				<label for="radio-1">Not</label>
+			</div>			
 		</div>
+
+		<br>
+
+		<!-- <div class="d-sm-none">
+			<p style="display:inline-block">Very</p>
+			<p class="text-right" style="display:inline-block">Not at all</p>
+		</div> -->
 
 		<br>
 
@@ -89,6 +109,7 @@ module.exports = (function() {
 	return {
 		data: function () {
 			return {
+				extroversion_score: null,
 				data_is_valid: true,
 			};
 		},

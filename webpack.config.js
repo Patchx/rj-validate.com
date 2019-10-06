@@ -2,28 +2,57 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
-  mode: 'development',
-  
-  context: path.resolve(__dirname, './src/js/'),
+    mode: 'development',
 
-  entry: './backend-demo.js',
+    context: path.resolve(__dirname, './src/js/'),
 
-  output: {
-    filename: 'backend-demo-bundle.js',
-    path: path.resolve(__dirname, './src/js'),
-  },
+    entry: './backend-demo.js',
 
-  module: {
-    rules: [
-      // ... other rules
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      }
-    ]
-  },
+    output: {
+        filename: 'backend-demo-bundle.js',
+        path: path.resolve(__dirname, './src/js'),
+    },
 
-  plugins: [
-    new VueLoaderPlugin()
-  ]
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
+
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                        },
+                    },
+                ],
+            },
+
+            {
+                test: /\.sass$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            indentedSyntax: true,
+                            sassOptions: {
+                                indentedSyntax: true,
+                            },
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+
+    plugins: [
+        new VueLoaderPlugin(),
+    ],
 };
