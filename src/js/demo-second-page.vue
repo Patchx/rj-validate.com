@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<h1 class="text-center pb-4">Horoscope Survey</h1>
+
 		<div class="text-center">
 			<p>Please enter your birthday:</p>
 
@@ -78,7 +80,6 @@ module.exports = (function() {
 		data: function () {
 			return {
 				data_is_valid: true,
-				date_of_birth: new Date(),
 				dob_error_msg: '',
 				sign: '',
 			};
@@ -99,6 +100,8 @@ module.exports = (function() {
 				var is_valid = this.validateInput();
 
 				if (is_valid) {
+					var dob = document.getElementById('date-of-birth').value;
+					this.$root.form.date_of_birth = dob;
 					this.$emit('next-clicked');
 				}
 			},
@@ -106,12 +109,12 @@ module.exports = (function() {
 			validateInput: function() {
 				var input = document.getElementById('date-of-birth');
 
-				var is_valid = rj().isValid(input.value, {
+				var result = rj().test(input.value, {
 					required: true,
 					date: 'yyyy-mm-dd',
 				});
 
-				if (is_valid) {
+				if (result.valid) {
 					this.dob_error_msg = '';
 					var date_array = input.value.split('-');
 
@@ -120,11 +123,11 @@ module.exports = (function() {
 						day: parseInt(date_array[2]),
 					});
 				} else {
-					this.dob_error_msg = "Invalid date";
+					this.dob_error_msg = result.message;
 					this.sign = '';
 				}
 
-				return is_valid;
+				return result.valid;
 			},
 		},
 	};

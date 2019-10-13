@@ -9,14 +9,7 @@ https://www.npmjs.com/package/rj-validate
 
 Todo:
 
-- 5 score Extro/Introvert question (required)
-
-- Link to the Myer's Briggs test: https://psychcentral.com/quizzes/personality/start.php
-
-- Make the Myer's Briggs results an optional input to the form
-
-- Optional gender field
-
+- Add a 'total validation' result for validateAll
 
 
 - Use Netlify Functions

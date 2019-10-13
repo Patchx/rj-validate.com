@@ -1,5 +1,7 @@
 <template>
 	<div>
+		<h1 class="text-center pb-4">Horoscope Survey</h1>
+
 		<p 
 		    class="mx-auto text-center"
 		    style="max-width:500px"

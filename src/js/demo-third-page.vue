@@ -1,77 +1,84 @@
 <template>
 	<div>
-		<div class="text-center">
-			<p>How extroverted are you?</p>
+		<h1 class="text-center pb-4">Horoscope Survey</h1>
 
-			<div class="extrovert-radio-div">				
-				<div>
-					<input 
-						type="radio" 
-						id="radio-5"
-						v-model="extroversion_score"
-						value="5" 
-					/>
+		<div class="row">
+			<div class="col-12">
+				<div class="form-group text-center">
+					<p>How extroverted are you?</p>
+
+					<div class="extrovert-radio-div align-top">				
+						<div>
+							<input 
+								type="radio" 
+								id="radio-5"
+								v-model="$root.form.extroversion_score"
+								value="5" 
+							/>
+						</div>
+
+						<label for="radio-5">Very</label>
+					</div>
+
+					<div class="extrovert-radio-div align-top">				
+						<div>
+							<input 
+								type="radio"
+								v-model="$root.form.extroversion_score"
+								value="4" 
+							/>
+						</div>
+
+						<label>&nbsp;</label>
+					</div>
+
+					<div class="extrovert-radio-div align-top">				
+						<div>
+							<input 
+								type="radio"
+								v-model="$root.form.extroversion_score"
+								value="3" 
+							/>
+						</div>
+
+						<label>&nbsp;</label>
+					</div>
+
+					<div class="extrovert-radio-div align-top">				
+						<div>
+							<input 
+								type="radio"
+								v-model="$root.form.extroversion_score"
+								value="2" 
+							/>
+						</div>
+
+						<label>&nbsp;</label>
+					</div>
+
+					<div class="extrovert-radio-div align-top">				
+						<div>
+							<input 
+								type="radio" 
+								id="radio-1"
+								v-model="$root.form.extroversion_score"
+								value="1" 
+							/>
+						</div>
+
+						<label for="radio-1">Not<br>at all</label>
+					</div>			
 				</div>
-
-				<label for="radio-5">Very</label>
 			</div>
-
-			<div class="extrovert-radio-div">				
-				<div>
-					<input 
-						type="radio"
-						v-model="extroversion_score"
-						value="4" 
-					/>
-				</div>
-
-				<label>&nbsp;</label>
-			</div>
-
-			<div class="extrovert-radio-div">				
-				<div>
-					<input 
-						type="radio"
-						v-model="extroversion_score"
-						value="3" 
-					/>
-				</div>
-
-				<label>&nbsp;</label>
-			</div>
-
-			<div class="extrovert-radio-div">				
-				<div>
-					<input 
-						type="radio"
-						v-model="extroversion_score"
-						value="2" 
-					/>
-				</div>
-
-				<label>&nbsp;</label>
-			</div>
-
-			<div class="extrovert-radio-div">				
-				<div>
-					<input 
-						type="radio" 
-						id="radio-1"
-						v-model="extroversion_score"
-						value="1" 
-					/>
-				</div>
-
-				<label for="radio-1">Not</label>
-			</div>			
 		</div>
 
-		<br>
-
-		<!-- <div class="d-sm-none">
-			<p style="display:inline-block">Very</p>
-			<p class="text-right" style="display:inline-block">Not at all</p>
-		</div> -->
+		<p 
+			v-if="score_error_msg !== ''"
+			v-cloak
+			v-text="score_error_msg"
+			class="text-center"
+			style="color:red"
+		></p>
 
 		<br>
 
@@ -109,8 +116,8 @@ module.exports = (function() {
 	return {
 		data: function () {
 			return {
-				extroversion_score: null,
 				data_is_valid: true,
+				score_error_msg: '',
 			};
 		},
 
@@ -122,19 +129,25 @@ module.exports = (function() {
 				var is_valid = this.validateInput();
 
 				if (is_valid) {
-					alert('submitted');
+					this.$emit('next-clicked');
 				}
 			},
 
 			validateInput: function() {
-				var is_valid = rj().isValid(input.value, {
+				const score = this.$root.form.extroversion_score;
+
+				var result = rj().test(score, {
 					required: true,
+					in: ['1','2','3','4','5'],
 				});
 
-				if (!is_valid) {
+				if (result.valid) {
+					this.score_error_msg = '';
+				} else {
+					this.score_error_msg = result.message;
 				}
 
-				return is_valid;
+				return result.valid;
 			},
 		},
 
