@@ -32,7 +32,7 @@ function getCurrentYear() {
 
 // Using the convention of 'g_' to indicate a global variable
 
-var g_latest_version = '1.3.2';
+var g_latest_version = '1.5.0';
 var g_current_year = getCurrentYear();
 var g_last_modified = getCurrentDate();
 
