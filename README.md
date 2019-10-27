@@ -9,8 +9,6 @@ https://www.npmjs.com/package/rj-validate
 
 Todo:
 
-- Add a 'total validation' result for validateAll
-
 
 - Use Netlify Functions
 
