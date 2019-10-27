@@ -156,7 +156,8 @@ rules = {
     before:           (string|Date|false),
     before_or:        (string|Date|false),
     after:            (string|Date|false),
-    after_or:         (string|Date|false)
+    after_or:         (string|Date|false),
+    zip:              (true|false|'usa-5'|'usa-9')
 }
                 </code></p>
 
@@ -246,75 +247,16 @@ rj().test('the quick brown fox jumps over the lazy dog', {
 
                 <p>You can also validate multiple inputs at the same time with the validateAll() method:</p>
 
-                <p><code>
-var rj = require('rj-validate/dist/rj');
 
-rj().validateAll([
-    {
-        name: 'first name',
-        value: 'Hubert!',
-        rules: {
-            required: true,
-            min: 2,
-            alpha: true
-        },
-    },
-
-    {
-        name: 'middle name',
-        value: 'J',
-        rules: {
-            min: 2,
-            alpha: true
-        }
-    },
-
-    {
-        name: 'last name',
-        value: 'Farnsworth',
-        rules: {
-            required: true,
-            min: 2,
-            alpha: true
-        }
-    },
-
-    {
-        name: 'suffix',
-        value: '',
-        rules: {
-            in: ['Jr', 'Sr', 'III', 'IV']
-        }
-    }
-]);
-
-// output:
-Object {
-    'first name': {
-        valid: false,
-        message: 'first name may only contain letters'
-    },
-
-    'middle name': {
-        valid: false,
-        message: 'middle name must be 2 or longer'
-    },
-
-    'last name': {
-        valid: true,
-        message: 'All tests pass'
-    },
-
-    'suffix': {
-        valid: true,
-        message: 'All tests pass'
-    }
-}
-                </code></p>
+                <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="html,result" data-user="rander" data-slug-hash="YzzQBWa" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="rj-validate validateAll example">
+                  <span>See the Pen <a href="https://codepen.io/rander/pen/YzzQBWa">
+                  rj-validate validateAll example</a> by Robert Anderson (<a href="https://codepen.io/rander">@rander</a>)
+                  on <a href="https://codepen.io">CodePen</a>.</span>
+                </p>
 
                 <br>
 
-                <a name="backend-validation">
+<!--                 <a name="backend-validation">
                     <p>&nbsp;</p>
                 </a>
 
@@ -327,7 +269,7 @@ Object {
 
                 <a href="/backend-demo">Backend Demo Project</a>
 
-                <br><br>
+                <br><br> -->
 
                 <a name="more-examples">
                     <p>&nbsp;</p>
