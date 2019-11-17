@@ -5,16 +5,57 @@
 		<div class="text-center">
 			<p>Please enter your birthday:</p>
 
-			<input 
-				id="date-of-birth"
-				v-on:change="validateInput"
-			/>
+			<div style="height:10px"></div>
+
+			<div class="mx-auto">
+				<div 
+					class="date-dropdown-div"
+					style="display: inline-block"
+				>
+					<select 
+						v-on:change="determineSign"
+						v-model="dob_month"
+						class="form-control"
+					>
+						<option value="">Month</option>
+						<option v-for="month in (1,12)">{{month}}</option>
+					</select>
+				</div>
+
+				<div 
+					class="date-dropdown-div"
+					style="display: inline-block"
+				>
+					<select 
+						v-on:change="determineSign"
+						v-model="dob_day"
+						class="form-control"
+					>
+						<option value="">Day</option>
+						<option v-for="day in (1,31)">{{day}}</option>
+					</select>
+				</div>
+
+				<div 
+					class="date-dropdown-div"
+					style="display: inline-block"
+				>
+					<select 
+						v-on:change="determineSign"
+						v-model="dob_year"
+						class="form-control"
+					>
+						<option value="">Year</option>
+						<option v-for="year in getYearList()">{{year}}</option>
+					</select>
+				</div>
+			</div>
 
 			<p 
 				v-if="dob_error_msg !== ''"
 				v-cloak
 				v-text="dob_error_msg"
-				style="color:red"
+				style="color:red; margin-top:15px"
 			></p>
 
 			<p 
@@ -25,7 +66,8 @@
 			></p>
 		</div>
 
-		<br>
+		<div style="height:40px"></div>
+
 
 		<div class="text-center">
 		    <button 
@@ -42,7 +84,6 @@
 // - Dependencies -
 // ----------------
 
-var datepicker = require('js-datepicker');
 var getSign = require('horoscope').getSign;
 var rj = require('rj-validate/dist/rj');
 
@@ -57,19 +98,24 @@ module.exports = (function() {
 	// - Private Functions -
 	// ---------------------
 
-	function initializeDatepicker(this_component) {
-		datepicker('#date-of-birth', {
-			formatter: (input, date, instance) => {
-				const value = date.toISOString().split('T')[0];
-				input.value = value;
-			},
+	function zeroPadNumber(n) {
+		return (n < 10 ? '0' : '') + n;
+	}
 
-			onSelect: (instance, date) => {
-				this_component.validateInput();
-			},
-
-			startDate: new Date(),
+	function validateInput(dob_string, this_component) {
+		var result = rj().test(dob_string, {
+			required: true,
+			date: 'yyyy-mm-dd',
 		});
+
+		if (result.valid) {
+			this_component.dob_error_msg = '';
+		} else {
+			this_component.dob_error_msg = result.message;
+			this_component.sign = '';
+		}
+
+		return result.valid;
 	}
 
 	// -----------------
@@ -80,54 +126,65 @@ module.exports = (function() {
 		data: function () {
 			return {
 				data_is_valid: true,
+				dob_day: '',
+				dob_month: '',
+				dob_year: '',
 				dob_error_msg: '',
 				sign: '',
 			};
 		},
 
 		computed: {
+			missingData: function() {
+				return (
+					this.dob_month === ''
+					|| this.dob_day === ''
+					|| this.dob_year === ''
+				);
+			},
+
 			signDisplayText: function() {
 				return "You are a " + this.sign + "!";
 			},
 		},
 
-		mounted: function() {
-			initializeDatepicker(this);
-		},
-
 		methods: {
-			submitForm: function() {
-				var is_valid = this.validateInput();
+			determineSign: function() {
+				this.dob_error_msg = '';
 
-				if (is_valid) {
-					var dob = document.getElementById('date-of-birth').value;
-					this.$root.form.date_of_birth = dob;
-					this.$emit('next-clicked');
+				if (this.missingData) {
+					return false;
 				}
+
+				this.sign = getSign({
+					month: parseInt(this.dob_month),
+					day: parseInt(this.dob_day),
+				});
 			},
 
-			validateInput: function() {
-				var input = document.getElementById('date-of-birth');
-
-				var result = rj().test(input.value, {
-					required: true,
-					date: 'yyyy-mm-dd',
-				});
-
-				if (result.valid) {
-					this.dob_error_msg = '';
-					var date_array = input.value.split('-');
-
-					this.sign = getSign({
-						month: parseInt(date_array[1]),
-						day: parseInt(date_array[2]),
-					});
-				} else {
-					this.dob_error_msg = result.message;
-					this.sign = '';
+			getYearList: function() {
+				var today = new Date();
+				var current_year = today.getFullYear();
+				var output = [];
+				
+				for (var i = current_year; i >= 1900; i--) {
+				    output.push(i);
 				}
 
-				return result.valid;
+				return output;
+			},
+
+			submitForm: function() {
+				var dob_string = this.dob_year 
+					+ '-' + zeroPadNumber(this.dob_month) 
+					+ '-' + zeroPadNumber(this.dob_day);
+
+				var is_valid = validateInput(dob_string, this);
+
+				if (is_valid) {
+					this.$root.form.date_of_birth = dob_string;
+					this.$emit('next-clicked');
+				}
 			},
 		},
 	};

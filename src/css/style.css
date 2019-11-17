@@ -7,6 +7,10 @@
 /* ------------------- */
 
 
+.date-dropdown-div {
+	width: 85px;
+}
+
 .extrovert-radio-div {
 	display: inline-block;
 	width: 50px;
@@ -27,6 +31,10 @@
 /* .component-fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
+
+/* --------------- */
+/* Bootstrap stuff */
+/* --------------- */
 
 /*!* Bootstrap v4.1.3 (https://getbootstrap.com/)
 * Copyright 2011-2018 The Bootstrap Authors
