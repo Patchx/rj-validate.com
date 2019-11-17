@@ -10,9 +10,11 @@ https://www.npmjs.com/package/rj-validate
 Todo:
 
 
-- Use Netlify Functions
+- Make a review info page, that mentions it only uses backend validation (has inputs for all previous steps, to modify)
 
-- Use FaunaDB
+- Use Netlify Functions to validate the review page and display the results back to the user if there is an error
+
+- Use FaunaDB to store and retrieve the data
 
 - Save the Fauna ID to Local Storage
 
