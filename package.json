@@ -24,6 +24,7 @@
     "jstransformer-nunjucks": "^0.5.0",
     "metalsmith": "^2.3.0",
     "metalsmith-in-place": "^4.2.0",
+    "metalsmith-sass": "^1.6.0",
     "node-sass": "^4.12.0",
     "rj-validate": "^1.5.0",
     "sass-loader": "^8.0.0",

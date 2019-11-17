@@ -9,6 +9,7 @@ console.log('js file build');
 var path = require('path');
 var Metalsmith  = require('metalsmith');
 var in_place    = require('metalsmith-in-place');
+var sass = require('metalsmith-sass');
 
 // ------------------------
 // - Function Definitions -
@@ -59,6 +60,9 @@ Metalsmith(__dirname)
 	.destination('./build')     // destination directory
 	.clean(true)                // clean destination before
 	.use(in_place())             // wrap layouts around html
+	.use(sass({
+	  outputDir: 'css/'
+	}))
 	.build(function(err) {      // build process
 		if (err) throw err;     // error handling is required
 	}
