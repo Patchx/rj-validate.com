@@ -55,14 +55,16 @@
 				v-if="dob_error_msg !== ''"
 				v-cloak
 				v-text="dob_error_msg"
-				style="color:red; margin-top:15px"
+				class="mt-15"
+				style="color:red"
 			></p>
 
 			<p 
 				v-if="sign !== ''"
 				v-cloak
 				v-text="signDisplayText"
-				style="margin-top:10px; color:green"
+				class="mt-15"
+				style="color:green"
 			></p>
 		</div>
 
