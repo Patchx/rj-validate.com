@@ -1,32 +1,7 @@
-@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i";
-@fa-font-path: "../webfonts";
 
-
-/* ------------------- */
-/* Backend Demo styles */
-/* ------------------- */
-
-
-.extrovert-radio-div {
-	display: inline-block;
-	width: 50px;
-}
-
-/* --------------------- */
-/* Vue transition styles */
-/* --------------------- */
-
-[v-cloak] {
-	display: none;
-}
-
-.component-fade-enter-active, .component-fade-leave-active {
-  transition: opacity .3s ease;
-}
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+/* --------------- */
+/* Bootstrap stuff */
+/* --------------- */
 
 /*!* Bootstrap v4.1.3 (https://getbootstrap.com/)
 * Copyright 2011-2018 The Bootstrap Authors

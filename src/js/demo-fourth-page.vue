@@ -158,9 +158,6 @@ module.exports = (function() {
 				return result.gender.valid && result.myers_briggs.valid;
 			},
 		},
-
-		mounted: function() {
-		},
 	};
 })();
 </script>
